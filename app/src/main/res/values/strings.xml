@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyanmarAttractions</string>
+    <string name="action_settings">Settings</string>
+    <string name="descrition">Yangon is a big and yet not modernized city, with Victorian buildings, tree-lined avenues, lakes and parks and a bustling city centre of friendly vendors, colourful stalls and people going about in their daily chores dressed traditionally in their Longyi and flip-flap sandals. The Bogyoke Aung San market (also called Scott’s Market) is a must for every visitor and so is the magnificent Shwedagon Pagoda – the prominent landmark of Myanmar. The first fundament of the Shwedagon is believed to have been built more than 2000 years ago, and the pagoda is revered by Buddhist and non-Buddhists alike. Yangon is the gateway to Myanmar and has direct air links with Bangkok, Singapore, Kuala Lumpur, Tokyo, Seoul, Doha, Beijing, Hanoi, Ho Chi Minh City, Chiang Mai, Hong Kong, Taipei, Guangzhou, Kunming, Nanning, Gaya and Dhaka.</string>
+    <string name="detail_activity_name">Detail of Place</string>
+    <string name="activity_name">Places Lists</string>
+</resources>

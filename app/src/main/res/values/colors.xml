@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="separator_color">#f1f1f4</color>
+    <color name="txt_color">#f6f7f9</color>
+    <color name="_detail_txt_color">#212121</color>
+
+    <color name="colorPrimary">#009486</color>
+    <color name="colorPrimaryDark">#00786a</color>
+    <color name="colorAccent">#f0009486</color>
+    <color name="accent">#03A9F4</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+</resources>
