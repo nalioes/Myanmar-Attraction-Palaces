@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        PersistData persistData = new PersistData(getApplicationContext());
-        persistData.getPlace();
+
 
         FragmentView fragmentView = new FragmentView();
 

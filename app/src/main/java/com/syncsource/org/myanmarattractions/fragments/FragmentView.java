@@ -37,9 +37,6 @@ public class FragmentView extends Fragment {
     private RecyclerView recyclerView;
     private DbOpenHelper dbOpenHelper = null;
     private final String BASEIMGURL = "http://www.aungpyaephyo.xyz/myanmar_attractions/";
-    List<Attraction> placeList = new ArrayList<>();
-
-    PersistData persistData;
 
     @Nullable
     @Override

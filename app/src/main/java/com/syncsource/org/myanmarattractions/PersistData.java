@@ -32,43 +32,43 @@ public class PersistData {
         dbOpenHelper = getDbOpenHelper();
     }
 
-    public void getPlace() {
-        final Apiinterface apiService =
-                ApiClient.getClient().create(Apiinterface.class);
-
-        Call<List<Attraction>> call = apiService.getPlaces();
-        call.enqueue(new Callback<List<Attraction>>() {
-            @Override
-            public void onResponse(Call<List<Attraction>> call, Response<List<Attraction>> response) {
-
-                for (int i = 0; i < response.body().size(); i++) {
-                    List<String> imgList = response.body().get(i).getImages();
-                    StringBuilder sb = new StringBuilder();
-                    String delimiter = "*";
-                    for (String imgUrl : imgList) {
-                        if (sb.length() > 0) {
-                            sb.append(delimiter);
-                        }
-                        sb.append(BASEIMGURL+imgUrl);
-                    }
-                    String imgUrlStr = sb.toString();
-                    if (!existDataFromDb(response.body().get(i))) {
-                        try {
-                            saveData(response.body().get(i).getTitle(), response.body().get(i).getDesc(), imgUrlStr);
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Attraction>> call, Throwable t) {
-
-            }
-        });
-    }
+//    public void getPlace() {
+//        final Apiinterface apiService =
+//                ApiClient.getClient().create(Apiinterface.class);
+//
+//        Call<List<Attraction>> call = apiService.getPlaces();
+//        call.enqueue(new Callback<List<Attraction>>() {
+//            @Override
+//            public void onResponse(Call<List<Attraction>> call, Response<List<Attraction>> response) {
+//
+//                for (int i = 0; i < response.body().size(); i++) {
+//                    List<String> imgList = response.body().get(i).getImages();
+//                    StringBuilder sb = new StringBuilder();
+//                    String delimiter = "*";
+//                    for (String imgUrl : imgList) {
+//                        if (sb.length() > 0) {
+//                            sb.append(delimiter);
+//                        }
+//                        sb.append(BASEIMGURL+imgUrl);
+//                    }
+//                    String imgUrlStr = sb.toString();
+//                    if (!existDataFromDb(response.body().get(i))) {
+//                        try {
+//                            saveData(response.body().get(i).getTitle(), response.body().get(i).getDesc(), imgUrlStr);
+//                        } catch (SQLException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Attraction>> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 
     public DbOpenHelper getDbOpenHelper() {
         if (dbOpenHelper == null) {
