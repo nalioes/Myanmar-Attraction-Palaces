@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.syncsource.org.myanmarattractions.adapter.AttractAdapter;
@@ -128,7 +129,7 @@ public class FragmentView extends Fragment {
 
             @Override
             public void onFailure(Call<List<Attraction>> call, Throwable t) {
-
+                Toast.makeText(getActivity().getApplicationContext(), "No network connection.", Toast.LENGTH_SHORT).show();
             }
         });
     }
