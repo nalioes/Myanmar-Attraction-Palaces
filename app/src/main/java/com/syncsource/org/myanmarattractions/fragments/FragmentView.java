@@ -15,7 +15,7 @@ import com.syncsource.org.myanmarattractions.adapter.AttractAdapter;
 import com.syncsource.org.myanmarattractions.model.Attraction;
 import com.syncsource.org.myanmarattractions.Data.DbOpenHelper;
 import com.syncsource.org.myanmarattractions.Data.PlaceORM;
-import com.syncsource.org.myanmarattractions.PersistData;
+import com.syncsource.org.myanmarattractions.Data.PersistData;
 import com.syncsource.org.myanmarattractions.R;
 import com.syncsource.org.myanmarattractions.rest.ApiClient;
 import com.syncsource.org.myanmarattractions.rest.Apiinterface;
@@ -85,7 +85,6 @@ public class FragmentView extends Fragment {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     public DbOpenHelper getDbOpenHelper() {
@@ -103,28 +102,28 @@ public class FragmentView extends Fragment {
         call.enqueue(new Callback<List<Attraction>>() {
             @Override
             public void onResponse(Call<List<Attraction>> call, Response<List<Attraction>> response) {
-
-                for (int i = 0; i < response.body().size(); i++) {
-                    List<String> imgList = response.body().get(i).getImages();
-                    StringBuilder sb = new StringBuilder();
-                    String delimiter = "*";
-                    for (String imgUrl : imgList) {
-                        if (sb.length() > 0) {
-                            sb.append(delimiter);
+                if (response.body() != null) {
+                    for (int i = 0; i < response.body().size(); i++) {
+                        List<String> imgList = response.body().get(i).getImages();
+                        StringBuilder sb = new StringBuilder();
+                        String delimiter = "*";
+                        for (String imgUrl : imgList) {
+                            if (sb.length() > 0) {
+                                sb.append(delimiter);
+                            }
+                            sb.append(BASEIMGURL + imgUrl);
                         }
-                        sb.append(BASEIMGURL + imgUrl);
-                    }
-                    String imgUrlStr = sb.toString();
-                    if (!persistData.existDataFromDb(response.body().get(i))) {
-                        try {
-                            persistData.saveData(response.body().get(i).getTitle(), response.body().get(i).getDesc(), imgUrlStr);
-                        } catch (SQLException e) {
-                            e.printStackTrace();
+                        String imgUrlStr = sb.toString();
+                        if (!persistData.existDataFromDb(response.body().get(i))) {
+                            try {
+                                persistData.saveData(response.body().get(i).getTitle(), response.body().get(i).getDesc(), imgUrlStr);
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
+                    getDataFromDb();
                 }
-                getDataFromDb();
-
             }
 
             @Override

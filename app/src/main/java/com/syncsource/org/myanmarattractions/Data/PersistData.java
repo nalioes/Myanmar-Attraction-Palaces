@@ -1,4 +1,4 @@
-package com.syncsource.org.myanmarattractions;
+package com.syncsource.org.myanmarattractions.Data;
 
 import android.content.Context;
 
